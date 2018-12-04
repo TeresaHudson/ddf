@@ -8,32 +8,70 @@
     vertical-align: top;
     width: 33%;
     position: relative;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    white-space: nowrap;
+    padding: 0px;
+    margin-top: 0px !important;
+    margin: 0px;
+    text-align: left !important;
+    font-size: 0px; // removes space between inline block elements.
 
-  > .association-content > div + div {
-    padding-left: 20px;
-  }
+    &:nth-child(odd) {
+        background: contrast(@backgroundContent, #f8f8f8, fade(white, 8%));
+    }
 
-  > .association-content,
-  > .association-remove {
-    vertical-align: top;
-  }
+    &:nth-child(even) {
+        background: contrast(@backgroundContent, #f8f8f8, fade(white, 5%));
+    }
 
-  > .association-content {
-    width: 100%;
-    display: inline-block;
-  }
-  > .association-remove {
-    width: @minimumButtonSize;
-    display: none;
-  }
+    > div {
+        text-align: left;
+    }
 
-  .association-parent-link,
-  .association-child-link {
-    line-height: @minimumButtonSize;
+    > .association-content > div {
+        display: inline-block;
+        vertical-align: top;
+        width: 33.333339%;
+        padding: 10px;
+        position: relative;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: solid 1px fade(contrast(@backgroundContent), 20%);
+        font-size: @minimumFontSize;
+        font-weight: 300;
+    }
+
+    > .association-content > div > a {
+        padding: 0; 
+        margin: 0;
+        line-height: 1;
+        font-weight: 300;
+    }
+
+    > .association-content > div + div {
+        
+    }
+
+    > .association-content,
+    > .association-remove {
+        vertical-align: top;
+    }
+
+    > .association-content {
+        width: 100%;
+        display: inline-block;
+    }
+
+    > .association-remove {
+        width: @minimumButtonSize;
+        display: none;
+        margin: 10px;
+    }
+
+    .association-parent-link,
+    .association-child-link {
+        line-height: @minimumButtonSize;
+    }
   }
 }
 

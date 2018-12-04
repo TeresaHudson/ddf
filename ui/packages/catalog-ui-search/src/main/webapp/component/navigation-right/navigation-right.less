@@ -1,0 +1,116 @@
+@{customElementNamespace}navigation-right {
+    @navigation-right-usericon: 1.375rem;
+    .customElement;
+    white-space: nowrap;
+    overflow: hidden;
+
+    button > span.fa {
+        font-size: @minimumFontSize;
+    }
+
+    button > span.fa-user {
+        margin-right: 7px;
+    }
+
+    .navigation-item {
+        display: inline-block;
+        min-width: @minimumButtonSize;
+        height: 100%;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .navigation-item.item-user {
+        padding: 0px @mediumSpacing;
+        max-width: 9rem + @navigation-right-usericon;
+        width: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-left: 1px solid fade(contrast(@backgroundNavigation), 30%);
+    }
+
+    .alerts-badge {
+        position: absolute;
+        font-size: @minimumFontSize;
+        top: 35%;
+        transform: scale(0) translateY(-50%);
+        transition: transform @coreTransitionTime ease-in-out;
+        color: @warning-color;
+    }
+
+    .item-alerts {
+        transition: transform 4*@coreTransitionTime ease-in-out;
+        transform: scale(1);
+    }
+
+    .user-unique {
+        white-space: nowrap;
+        vertical-align: top;
+        position: relative; 
+        // font-size: @minimumFontSize;
+    }
+
+    .user-unique span:first-of-type {
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        // display: inline-block;
+        width: @navigation-right-usericon;
+        line-height: inherit !important;
+        vertical-align: top;
+        transform: translateY(-50%);
+        font-size: @minimumFontSize;
+
+        
+    }
+
+    .user-unique span:nth-of-type(2){
+        // display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        max-width: 9rem - @navigation-right-usericon;
+        padding-left: @navigation-right-usericon;
+        font-size: @minimumFontSize;
+    }
+
+}
+
+@{customElementNamespace}navigation-right.is-guest {
+
+    .user-unique {
+        display: none;
+    }
+}
+
+@{customElementNamespace}navigation-right:not(.is-guest) {
+
+    .user-guest {
+        display: none;
+    }
+}
+
+@{customElementNamespace}navigation-right.has-unseen-notifications {
+
+    .item-alerts {
+        opacity: 1;
+        animation: navigation-right-unseen-notifications 4*@coreTransitionTime 5 alternate ease-in-out;
+        transform: scale(1.2);
+    }
+
+    .alerts-badge {
+        transform: scale(1) translateY(-50%);
+    }
+
+}
+
+@keyframes navigation-right-unseen-notifications{
+        0% {
+            opacity: @minimumOpacity;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+}

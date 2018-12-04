@@ -1,18 +1,146 @@
 //golden layout theming only, other styles should go below in their own nest
 @{customElementNamespace}golden-layout {
-  .lm_maximised ~ .lm_item {
-    display: none;
-  }
+    
+    .lm_maximised ~ .lm_item{
+        display: none;
+    }
 
-  .lm_maximised .lm_header,
-  .lm_goldenlayout,
-  .lm_item,
-  .lm_content,
-  .lm_items,
-  .lm_item_container,
-  .lm_content {
-    background: inherit !important;
-  }
+    .lm_maximised .lm_header, .lm_goldenlayout, .lm_item, .lm_content, .lm_items, .lm_item_container, .lm_content {
+        background: inherit !important;
+    }
+
+    .lm_header {
+        border-bottom: 1px solid fade(contrast(@backgroundAccentContent), 5%);
+    }
+
+    .lm_header,
+    .lm_items {
+        position: relative;
+        z-index: 1;
+    }
+
+    .lm_items {
+        z-index: 0;
+    }
+
+    .lm_tab {
+        height: @minimumButtonSize !important;
+        line-height: @minimumButtonSize;
+        background: inherit !important;
+        box-shadow: none !important;
+    }
+
+    .lm_tabs .lm_tab {
+        opacity: .4;
+        z-index: 10 !important;
+    }
+
+    .lm_tab.lm_active {
+        opacity: 1;
+        z-index: 15 !important;
+        border-bottom: 1px solid @backgroundContent !important;
+        height: @minimumButtonSize !important;
+    }
+
+    .lm_tabdropdown_list {
+        background: @backgroundDropdown !important;
+    }
+
+    .lm_tabdropdown_list .lm_title {
+        color: contrast(@backgroundDropdown) !important;
+    }    
+    .lm_tabdropdown_list .lm_tab:hover {
+        background: fade(contrast(@backgroundDropdown), 10%) !important;
+    }
+
+    .lm_header .lm_tabdropdown_list {
+        z-index: @zIndexDropdown;
+        .dropshadow;
+    }
+
+    .lm_close_tab {
+        height: @minimumButtonSize !important;
+        top: 0px !important;
+        right: 0px !important;
+        position: static !important;
+        display: inline-block !important;
+        width: @minimumButtonSize !important;
+        vertical-align: top;
+        font-size: @minimumFontSize !important;
+        background: none !important;
+        opacity: @minimumOpacity !important;
+    }
+
+    .lm_close_tab:before {
+        content: "\F00D";
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .lm_close_tab:hover {
+        background: none !important;
+        opacity: 1 !important;
+    } 
+
+    .lm_controls {
+         li {
+            min-width: @minimumButtonSize;
+            width: auto !important;
+            height: @minimumButtonSize !important;
+            line-height: @minimumButtonSize !important;
+            font-size: @largeFontSize;
+            background-image: none !important;
+            transition: none !important;
+        }
+        li:hover {
+            background: none !important;
+        }
+        .lm_maximise:not([title=minimise]):before {
+            content: "\f065";
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .lm_maximise[title=minimise]:before {
+            content: "\f066";
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .lm_close:before {
+            content: "\F00D";
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .lm_tabdropdown:before {
+            content: "\F0D7" !important;
+            width: auto !important;
+            height: auto !important;
+            border: none !important;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        right: 0px !important;
+    }
+
+    .lm_drag_handle {
+        position: static !important;
+        height: 100% !important;
+        width: 100% !important;
+    }
 
   .lm_header,
   .lm_items {
@@ -198,13 +326,14 @@
   .lm_horizontal:hover .lm_drag_handle::after {
     opacity: 1;
   }
-}
 
-.lm_dragging,
-.lm_dragging * {
-  cursor: grabbing !important;
-  cursor: -moz-grabbing !important;
-  cursor: -webkit-grabbing !important;
+
+  .lm_dragging,
+  .lm_dragging * {
+    cursor: grabbing !important;
+    cursor: -moz-grabbing !important;
+    cursor: -webkit-grabbing !important;
+  }
 }
 
 @{customElementNamespace}golden-layout {
@@ -269,11 +398,16 @@
   }
 }
 
+
 @{customElementNamespace}golden-layout.is-minimised {
   > .golden-layout-toolbar {
     z-index: @zIndexContent;
     background: inherit;
     transform: translateY(100%);
+
+    .lm_header .lm_tab {
+        font-size: @minimumFontSize;
+    }
 
     > span {
       display: none;

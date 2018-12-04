@@ -1,27 +1,29 @@
 @{customElementNamespace}map-info {
-  .is-monospaced-font;
-  background: inherit;
-  display: block;
-  width: auto;
-  height: auto;
-  font-size: @minimumFontSize;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  text-align: left;
-  padding: @minimumSpacing;
-  max-width: 50%;
 
-  .info-coordinates {
-    display: inline-block;
-    white-space: pre;
-  }
-  .info-feature {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: none;
-  }
+    .is-monospaced-font;
+    background: inherit;
+    display: block;
+    width: auto;
+    height: auto;
+    font-size: @minimumFontSize;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    text-align: left;
+    padding: @minimumSpacing;
+    max-width: 50%;
+    opacity: .85;
+   
+    .info-coordinates {
+        display: inline-block;
+        white-space: pre;
+    }
+    .info-feature {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: none;
+    }
 }
 
 @{customElementNamespace}map-info.is-off-map {

@@ -1,11 +1,21 @@
 @{customElementNamespace}paging {
   position: relative;
   .customElement;
-  padding: 10px;
-
   width: 100%;
   text-align: center;
-  padding: 5px 0;
+  padding: 15px;
+
+  .buttons-left {
+    position: absolute;
+    top: 5px;
+    left: 0;
+  }
+
+  .buttons-right {
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
 
   .buttons-container {
     position: relative;
@@ -22,7 +32,14 @@
   }
 
   button {
-    width: @minimumButtonSize;
+    //width: @minimumButtonSize;
+    width: 10%;
+    min-width: 30px;
+
+    &.is-primary:disabled {
+      background: @primary-color;
+      opacity: .2;
+    }
 
     &.server-next,
     &.server-previous {
@@ -31,6 +48,7 @@
 
       span {
         font-size: @mediumFontSize;
+        font-weight: 600;
       }
     }
   }

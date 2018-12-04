@@ -48,7 +48,8 @@
 @minimumDividerSize: @dividerHeight + 2 * @minimumSpacing;
 
 //opacity
-@minimumOpacity: 0.6;
+@minimumOpacity: 0.3;
+@mediumOpacity: 0.6;
 
 @import 'fonts.less';
 
@@ -62,28 +63,30 @@
 @customFavoriteColor: #d1d179;
 
 //color usage
+
 @customBackgroundNavigation: #252529;
 @customBackgroundAccentContent: #2a2a2e;
 @customBackgroundDropdown: #35353a;
 @customBackgroundContent: #35353a;
 @customBackgroundModal: #252529;
 @customBackgroundSlideout: #252529;
+@customBackgroundInput: white;
 
 .theme() when (@theme = dark), (default()) {
-  //color palette
-  @primary-color: #3c6dd5;
-  @positive-color: #428442;
-  @negative-color: #8a423c;
-  @warning-color: #c89600;
-  @favorite-color: #d1d179;
+    //color palette
+    @primary-color: #3c6dd5;
+    @positive-color: #428442;
+    @negative-color: #8a423c;
+    @warning-color: #c89600;
+    @favorite-color: #d1d179;
 
-  //color usage
-  @backgroundNavigation: #252529;
-  @backgroundAccentContent: #2a2a2e;
-  @backgroundDropdown: #35353a;
-  @backgroundContent: #35353a;
-  @backgroundModal: #252529;
-  @backgroundSlideout: #252529;
+    //color usage
+    @backgroundNavigation: #252529;
+    @backgroundAccentContent: #2e2e33;
+    @backgroundDropdown: #35353a;
+    @backgroundContent: #35353a;
+    @backgroundModal: #252529;
+    @backgroundSlideout: #252529;
 }
 
 .theme() when (@theme = sea) {
@@ -104,20 +107,20 @@
 }
 
 .theme() when (@theme = light) {
-  //color palette
-  @primary-color: #3c6dd5;
-  @positive-color: #428442;
-  @negative-color: #8a423c;
-  @warning-color: #c89600;
-  @favorite-color: #d1d179;
+    //color palette
+    @primary-color: #3c6dd5;
+    @positive-color: #428442;
+    @negative-color: #8a423c;
+    @warning-color: #c89600;
+    @favorite-color: #d1d179;
 
-  //color usage
-  @backgroundNavigation: #3c6dd5;
-  @backgroundAccentContent: #edf9fc;
-  @backgroundDropdown: #f3fdff;
-  @backgroundContent: #f3fdff;
-  @backgroundModal: #edf9fc;
-  @backgroundSlideout: #edf9fc;
+    //color usage
+    @backgroundNavigation: #3c6dd5;
+    @backgroundAccentContent: #f1f1f1;
+    @backgroundDropdown: #f8f8f8;
+    @backgroundContent: #f8f8f8;
+    @backgroundModal: #f1f1f1;
+    @backgroundSlideout: #f1f1f1;
 }
 
 .theme() when (@theme = custom) {

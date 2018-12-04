@@ -1,0 +1,146 @@
+@{customElementNamespace}workspace-item {
+  .customElement;
+  overflow: hidden;
+  display: inline-block;
+  width: 31.3334%;
+  margin: 1.5%;
+  padding: 0px;
+  height: 2*@minimumLineSize;
+  cursor: pointer;
+  position: relative;
+  background: fade(white, 5%);
+
+  .is-list.is-inline  {
+    border-left: 0px;
+  }
+
+  &:nth-child(3n + 1) {
+    margin-left: 0px;
+  }
+
+  &:nth-child(3n + 3) {
+    margin-right: 0px;
+  }
+  
+  > div {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+
+  .choice-details {
+    width: 100%;
+    padding: @mediumSpacing;
+  }
+
+  .choice-date {
+    font-style: italic;
+  }
+
+  .choice-details,
+  .choice-actions,
+  .choice-save {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    height: 100%;
+    .is-small-font();
+  }
+
+  .choice-actions,
+  .choice-save {
+    width: @minimumButtonSize;
+    text-align: center;
+    height: 100%;
+    line-height: 2*@minimumLineSize;
+    overflow: hidden;
+  }
+
+  .choice-actions {
+  }
+
+  .choice-save {
+    position: absolute;
+    right: @minimumButtonSize;
+    transition: transform @coreTransitionTime linear;
+    transform: scale(1);
+    max-width: 100%;
+  }
+
+  .choice-footer {
+    width: 100%;
+    border-bottom: solid 1px fade(contrast(@backgroundContent), 15%);
+
+    .cf.cf-saved {
+      float: left;
+      color: fade(mix(contrast(@backgroundContent), @primary-color), 60%);
+      padding: @minimumSpacing;
+      span { font-size: .65rem; padding-left: 5px; }
+    }
+
+    .choice-actions {
+      float: right;
+    }
+  }
+}
+
+@{customElementNamespace}workspace-item.as-list {
+  display: block;
+  width: 100%;
+  text-align: left;
+  height: @minimumButtonSize;
+  line-height: @minimumButtonSize;
+  white-space: nowrap;
+  margin: @minimumSpacing 0px;
+  padding: 0px;
+
+  .choice-actions,
+  .choice-save {
+    line-height: @minimumButtonSize;
+  }
+}
+
+@{customElementNamespace}workspace-item.as-grid {
+  height: auto;
+  text-align: right;
+  .choice-details {
+    height: auto;
+    text-align: left;
+    padding-right: 0px;
+  }
+  .choice-actions,
+  .choice-save {
+    position: static;
+    width: @minimumButtonSize;
+    height: @minimumButtonSize;
+    line-height: @minimumButtonSize;
+  }
+
+  &.is-saved {
+    .choice-details {
+      padding-right: 0px;
+    }
+  }
+}
+
+@{customElementNamespace}workspace-item.is-saved {
+
+  .choice-footer {
+    .cf.cf-saved {
+      display: block;
+    }
+  }
+
+  .choice-save {
+      opacity: 1;
+      transition: max-width 0s ease-out 10*@coreTransitionTime;
+      overflow: hidden;
+      max-width: 0%;
+  }
+
+  .choice-details {
+    transition: padding @coreTransitionTime ease-out 10*@coreTransitionTime;
+    padding-right: @minimumButtonSize;  //IE Edge doesn't support calc transitions
+  }
+
+}
